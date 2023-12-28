@@ -1,6 +1,6 @@
 # Projet Final - Data Design
 
-This project was collaboratively developed by [Your Name] and [Deilhes Geremy]. It showcases a website with various data design graphs focusing on the Top 10 goalkeepers in penalty situations.
+This project was collaboratively developed by Vinkovic Carolina and Deilhes Geremy. It showcases a website with various data design graphs focusing on the Top 10 goalkeepers in penalty situations.
 
 ## Contributors
 
