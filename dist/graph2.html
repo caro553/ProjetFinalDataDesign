@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bubble Chart</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bubbleChart" width="900" height="800"></canvas>
+
+<script>
+  // Data from Excel
+  const data = [
+  { goalkeeper: "Karlo Letica", current_team: "Club Brugge", born: 1997, country: "CRO", notconceded: 3, conceded: 2, pksfaced: 5, saves: 60.00 },
+  { goalkeeper: "Yuri Lodygin", current_team: "Zenit", born: 1990, country: "RUS", notconceded: 7, conceded: 6, pksfaced: 13, saves: 53.85 },
+  { goalkeeper: "Diego Alves", current_team: "Valencia", born: 1985, country: "BRA", notconceded: 25, conceded: 31, pksfaced: 56, saves: 44.64 },
+  { goalkeeper: "Aleksandr Belenov", current_team: "FK Ufa", born: 1986, country: "RUS", notconceded: 23, conceded: 30, pksfaced: 53, saves: 43.40 },
+  { goalkeeper: "Kenneth Vermeer", current_team: "Feyenoord", born: 1986, country: "NED", notconceded: 13, conceded: 17, pksfaced: 30, saves: 43.33 },
+  { goalkeeper: "Andrii Lunin", current_team: "Leganes", born: 1999, country: "UKR", notconceded: 2, conceded: 3, pksfaced: 5, saves: 40.00 },
+  { goalkeeper: "Jan Oblak", current_team: "Atletico Madrid", born: 1993, country: "SVN", notconceded: 13, conceded: 22, pksfaced: 35, saves: 37.14 },
+  { goalkeeper: "Samir Handanovič", current_team: "Internazionale Milan", born: 1984, country: "SVN", notconceded: 37, conceded: 63, pksfaced: 100, saves: 37.00 },
+  { goalkeeper: "Fraser Forster", current_team: "Southampton", born: 1988, country: "ENG", notconceded: 11, conceded: 19, pksfaced: 30, saves: 36.67 },
+  { goalkeeper: "Danijel Subašić", current_team: "AS Monaco", born: 1984, country: "CRO", notconceded: 18, conceded: 34, pksfaced: 52, saves: 34.62 },
+  { goalkeeper: "Matz Sels", current_team: "Strasbourg", born: 1992, country: "BEL", notconceded: 10, conceded: 20, pksfaced: 30, saves: 33.33 },
+  { goalkeeper: "Joel Robles", current_team: "Betis", born: 1990, country: "ESP", notconceded: 4, conceded: 8, pksfaced: 12, saves: 33.33 },
+  { goalkeeper: "Alisson", current_team: "Liverpool", born: 1992, country: "BRA", notconceded: 5, conceded: 10, pksfaced: 15, saves: 33.33 },
+  { goalkeeper: "Robin Olsen", current_team: "Roma", born: 1990, country: "SWE", notconceded: 6, conceded: 12, pksfaced: 18, saves: 33.33 },
+  { goalkeeper: "Mike Maignan", current_team: "Lille", born: 1995, country: "FRA", notconceded: 5, conceded: 10, pksfaced: 15, saves: 33.33 },
+  // ... (add other data points)
+  { goalkeeper: "Thomas Strakosha", current_team: "Lazio", born: 1995, country: "ALB", notconceded: 2, conceded: 34, pksfaced: 36, saves: 5.56 },
+  { goalkeeper: "Marko Dmitrović", current_team: "Eibar", born: 1992, country: "SRB", notconceded: 1, conceded: 22, pksfaced: 23, saves: 4.35 },
+  { goalkeeper: "Yoan Cardinale", current_team: "Nice", born: 1994, country: "FRA", notconceded: 0, conceded: 12, pksfaced: 12, saves: 0.00 },
+  { goalkeeper: "Unai Simón", current_team: "Athletic Bilbao", born: 1997, country: "ESP", notconceded: 0, conceded: 5, pksfaced: 5, saves: 0.00 },
+];
+
+ // Create a canvas and get its context
+ const canvas = document.getElementById("bubbleChart");
+  const ctx = canvas.getContext("2d");
+
+  
+  data.forEach(item => {
+    const x = item.saves * 10; 
+    const y = item.pksfaced * 10; 
+    const radius = (item.notconceded + item.conceded) * 3;
+
+    const maxX = canvas.width - radius;
+    const adjustedX = Math.min(x, maxX);
+
+    const color = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.7)`;
+
+    // Draw a circle for each data point
+    ctx.beginPath();
+    ctx.arc(adjustedX, y, radius, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.stroke();
+
+
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText(item.goalkeeper, adjustedX, y + radius + 10);
+  });
+</script>
+
+</body>
+</html>
