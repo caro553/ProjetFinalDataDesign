@@ -4,7 +4,7 @@ This project was collaboratively developed by [Your Name] and [Deilhes Geremy]. 
 
 ## Contributors
 
-- [Your Name](link-to-your-profile)
+- [Vinkovic Carolina](link-to-your-profile)
 - [Deilhes Geremy](link-to-deilhes-geremy-profile)
 
 ## Project Overview
