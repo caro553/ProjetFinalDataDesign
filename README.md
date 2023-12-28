@@ -16,8 +16,6 @@ The goal of this project is to present insightful data visualizations related to
 - HTML
 - CSS
 - JavaScript
-- D3.js (or any other data visualization library used)
-- ...
 
 ## Usage
 
